@@ -262,7 +262,9 @@ IPTABLES += libext
 IPTABLES += iptables
 
 #KERNEL_TESTS
+ifeq ($(LINEAGE_BUILD),)
 KERNEL_TESTS := mm-audio-native-test
+endif
 
 #KEYPAD
 KEYPAD := ffa-keypad_qwerty.kcm
@@ -330,8 +332,10 @@ LIBCAMERA += libmmcamera_interface2
 LIBCAMERA += libmmjpeg_interface
 LIBCAMERA += libmmlib2d_interface
 LIBCAMERA += libqomx_core
+ifeq ($(LINEAGE_BUILD),)
 LIBCAMERA += mm-qcamera-app
 LIBCAMERA += camera_test
+endif
 LIBCAMERA += org.codeaurora.camera
 
 # Shared by passthrough/binderized camera HAL
@@ -502,7 +506,9 @@ MM_CORE := libmm-omxcore
 MM_CORE += libOmxCore
 
 #MM_VIDEO
+ifeq ($(LINEAGE_BUILD),)
 MM_VIDEO := ast-mm-vdec-omx-test
+endif
 MM_VIDEO += liblasic
 MM_VIDEO += libOmxVdec
 MM_VIDEO += libOmxVdecHevc
@@ -512,6 +518,7 @@ MM_VIDEO += libOmxVidEnc
 MM_VIDEO += libOmxSwVdec
 MM_VIDEO += libOmxSwVencMpeg4
 MM_VIDEO += libstagefrighthw
+ifeq ($(LINEAGE_BUILD),)
 MM_VIDEO += mm-vdec-omx-property-mgr
 MM_VIDEO += mm-vdec-omx-test
 MM_VIDEO += mm-venc-omx-test
@@ -519,6 +526,7 @@ MM_VIDEO += mm-venc-omx-test720p
 MM_VIDEO += mm-video-driver-test
 MM_VIDEO += mm-video-encdrv-test
 MM_VIDEO += ExoplayerDemo
+endif
 
 #OPENCORE
 OPENCORE := libomx_aacdec_sharedlibrary

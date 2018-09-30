@@ -577,7 +577,7 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     group system
     disabled
 
-on property:ro.build.type=userdebug
+on property:ro.build.type=eng
    write /sys/class/uio/uio1/device/rtel/rtel 1
 
 on property:init.svc.vendor.per_mgr=running
